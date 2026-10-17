@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For My pyari si chidiyaa 💗</title>
+<style>
+  :root {
+    --pink: #ffd9e8;
+    --pink-dark: #f08ab4;
+    --lavender: #e8ddff;
+    --cream: #fffaf2;
+    --ink: #6c4967;
+    --white: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; color: var(--ink);
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background: linear-gradient(145deg, #fff4f8, #f6efff 55%, #fff8e9);
+    overflow-x: hidden;
+  }
+  button { font: inherit; cursor: pointer; border: 0; }
+  .wrap { width: min(920px, 92%); margin: auto; }
+  .hero { min-height: 92vh; display: grid; place-items: center; text-align: center; padding: 48px 0; position: relative; }
+  .card {
+    background: rgba(255,255,255,.78); border: 2px solid white;
+    border-radius: 30px; padding: clamp(24px, 5vw, 48px);
+    box-shadow: 0 18px 55px #d9b5d844; width: 100%;
+  }
+  .tag { display: inline-block; padding: 8px 14px; border-radius: 99px; background: var(--lavender); font-size: .9rem; }
+  h1 { font-size: clamp(2.3rem, 7vw, 4.5rem); margin: 18px 0 10px; line-height: 1.05; }
+  h2 { font-size: clamp(1.7rem, 5vw, 2.5rem); margin-top: 0; }
+  p { line-height: 1.7; }
+  .subtitle { max-width: 620px; margin: 0 auto 24px; font-size: 1.08rem; }
+  .btn {
+    display: inline-block; padding: 13px 20px; border-radius: 99px; margin: 6px;
+    color: #fff; background: var(--pink-dark); box-shadow: 0 7px 0 #d96d9b;
+    transition: transform .15s;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn.alt { background: #a991dc; box-shadow: 0 7px 0 #8a72c1; }
+  .doodle { font-size: 2rem; letter-spacing: 8px; }
+  section { padding: 30px 0 55px; }
+  .section-card { background: rgba(255,255,255,.72); border: 2px solid white; border-radius: 26px; padding: clamp(20px, 4vw, 34px); text-align: center; }
+  .photos { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 22px; }
+  .photo {
+    background: white; border-radius: 18px; padding: 10px; transform: rotate(-1deg);
+    box-shadow: 0 8px 22px #bda8ca33;
+  }
+  .photo:nth-child(even) { transform: rotate(1.5deg); }
+  .photo img { display: block; width: 100%; height: 220px; object-fit: cover; border-radius: 12px; background: var(--lavender); }
+  .caption { margin: 10px 4px 3px; font-weight: bold; }
+  .gift { font-size: clamp(5rem, 16vw, 8rem); background: none; filter: drop-shadow(0 8px 6px #d7a3bf66); animation: bob 1.8s ease-in-out infinite; }
+  @keyframes bob { 0%,100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-10px) rotate(3deg); } }
+  .hidden { display: none; }
+  .letter { text-align: left; background: #fff8fc; padding: 22px; border-radius: 18px; border: 2px dashed #f4b5d0; white-space: pre-line; }
+  .cake { font-size: 5rem; }
+  footer { text-align: center; padding: 20px 0 45px; font-size: .9rem; }
+  .heart {
+    position: fixed; bottom: -40px; z-index: 5; pointer-events: none;
+    animation: floatUp 5s linear forwards; opacity: .9;
+  }
+  @keyframes floatUp { to { transform: translateY(-110vh) rotate(25deg); opacity: 0; } }
+  .sparkle { color: #e78bb5; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="hero">
+    <div class="wrap">
+      <div class="card">
+        <div class="doodle">🌷 ✨ 🧸 ✨ 🌷</div>
+        <span class="tag">a tiny website made with lots of love</span>
+        <!-- CUSTOMIZE: Replace BEST FRIEND NAME below -->
+        <h1>Happy Birthday,<br><span id="friendName">Bestie</span>! 🎂</h1>
+        <!-- CUSTOMIZE: Replace this short intro -->
+        <p class="subtitle">To my favourite human: I hope your day is full of little joys, big smiles, sweet surprises, and all the love you deserve. 💗</p>
+        <button class="btn" id="startBtn">Open Your Surprise 💌</button>
+        <button class="btn alt" id="musicBtn">♫ Play our song</button>
+        <p id="musicNote" style="font-size:.85rem">Add your own song file to enable music (instructions below).</p>
+        <div class="doodle sparkle">♡ ୨୧ ♡ ୨୧ ♡</div>
+      </div>
+    </div>
+  </header>
+
+  <section id="memories">
+    <div class="wrap">
+      <div class="section-card">
+        <span class="tag">little moments, big memories</span>
+        <h2>Our tiny memory lane 📸</h2>
+        <p>Every photo has a story, and every story is one of my favourites.</p>
+        <div class="photos">
+          <!-- CUSTOMIZE PHOTOS: Put your image files beside index.html and change the filenames below.
+               Example: src="photo1.jpg". Keep filenames simple, e.g. memory1.jpg -->
+          <div class="photo">
+            <img src="photo1.jpg" alt="Best friend memory one" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+            <div class="photo-placeholder" style="display:none;min-height:220px;place-items:center;background:#f4eaff;border-radius:12px">📷 Add photo1.jpg</div>
+            <!-- CUSTOMIZE: photo caption -->
+            <div class="caption">The day we couldn't stop laughing 💞</div>
+          </div>
+          <div class="photo">
+            <img src="photo2.jpg" alt="Best friend memory two" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+            <div class="photo-placeholder" style="display:none;min-height:220px;place-items:center;background:#fff0f6;border-radius:12px">📷 Add photo2.jpg</div>
+            <!-- CUSTOMIZE: photo caption -->
+            <div class="caption">One of my favourite memories 🌸</div>
+          </div>
+          <div class="photo">
+            <img src="photo3.jpg" alt="Best friend memory three" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+            <div class="photo-placeholder" style="display:none;min-height:220px;place-items:center;background:#fff6dd;border-radius:12px">📷 Add photo3.jpg</div>
+            <!-- CUSTOMIZE: photo caption -->
+            <div class="caption">More memories to come ✨</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-card">
+        <span class="tag">a little something for you</span>
+        <h2>Your tiny gift 🎁</h2>
+        <p>Tap the gift to see what is hiding inside.</p>
+        <button class="gift" id="giftBtn" aria-label="Open the gift">🎁</button>
+        <div id="giftMessage" class="hidden">
+          <h2>Surprise! 💝</h2>
+          <!-- CUSTOMIZE: Gift reveal message -->
+          <p>You deserve all the good things this world has to offer. Never forget how special you are!</p>
+          <div class="doodle">🍓 🧁 🌈</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-card">
+        <span class="tag">make a wish</span>
+        <h2>Birthday magic 🕯️</h2>
+        <div class="cake" id="cake">🎂</div>
+        <p id="wishText">Close your eyes, make a wish, and tap the button.</p>
+        <button class="btn alt" id="wishBtn">Blow the candle ✨</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-card">
+        <span class="tag">from my heart to yours</span>
+        <h2>A little letter 💌</h2>
+        <button class="btn" id="letterBtn">Open your letter</button>
+        <div id="letter" class="letter hidden" style="margin-top:20px">
+          <!-- CUSTOMIZE PERSONAL MESSAGE: Replace the message below with your own words. -->
+          Dear Bestie,
+
+          hapy birthday meri cutipie meri pyari si chidya i wish tu hmesha hasti khelti rhein aise hi muskurati rhe teri lyf mei koi bhi prblm na aaye or tujhe sari 
+ 
+          cheeje mile may this birthday u will get all the things who u want isse jyda english ni aati mujhe bus mai toh bus dil se tuje bhout sari blessing dena chata 
+
+          or ek sorry khena chata hun tujhee meri sari galtiyo ke liye or ek pyara sa thankuu bhii mujhe hmehsha support krne ke liye or hmesha mera sath dene ke liye 
+
+          I hope this new year brings you peace, courage, happiness, and countless reasons to smile. No matter how busy life gets, I will always be cheering for you.
+
+          Keep shining, keep dreaming, and never forget how loved you are.
+
+          Happy Birthday once again! 🩷
+          <br><strong>With lots of love,</strong><br>
+          <!-- CUSTOMIZE: Your name/nickname -->
+          Your suar 🐶🌷
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-card">
+        <span class="tag">one last thing...</span>
+        <h2>Ready for the secret? 🤫</h2>
+        <button class="btn" id="secretBtn">Unlock the final surprise 💖</button>
+        <div id="secret" class="hidden">
+          <div class="doodle">🌟 💗 🌟</div>
+          <!-- CUSTOMIZE: Final surprise -->
+          <h2>You are one of my favourite people. Always remember that! 🫶</h2>
+          <p>Screenshot this page and keep it as a little birthday memory. 🎀</p>
+          <button class="btn alt" id="replayBtn">Replay the magic ↻</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>Made with 💗, sprinkles, and friendship.</footer>
+
+<!-- MUSIC: Add a file named song.mp3 beside index.html, or change the source filename below. -->
+<audio id="song" src="song.mp3" loop preload="none"></audio>
+
+<script>
+  const startBtn = document.getElementById('startBtn');
+  const musicBtn = document.getElementById('musicBtn');
+  const song = document.getElementById('song');
+  const musicNote = document.getElementById('musicNote');
+  let musicReady = false;
+
+  function hearts(count = 18) {
+    const emojis = ['💗', '💖', '💕', '🌸', '✨', '🎀'];
+    for (let i = 0; i < count; i++) {
+      const h = document.createElement('span');
+      h.className = 'heart';
+      h.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      h.style.left = Math.random() * 100 + 'vw';
+      h.style.fontSize = (16 + Math.random() * 22) + 'px';
+      h.style.animationDuration = (3.5 + Math.random() * 3) + 's';
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), 7000);
+    }
+  }
+
+  startBtn.addEventListener('click', () => {
+    hearts(28);
+    document.getElementById('memories').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  musicBtn.addEventListener('click', async () => {
+    if (song.paused) {
+      try {
+        await song.play();
+        musicBtn.textContent = '♫ Pause our song';
+        musicNote.textContent = 'Music is playing 🎵';
+      } catch (e) {
+        musicNote.textContent = 'Add song.mp3 beside index.html, then try again.';
+      }
+    } else {
+      song.pause();
+      musicBtn.textContent = '♫ Play our song';
+      musicNote.textContent = 'Music paused.';
+    }
+  });
+
+  document.getElementById('giftBtn').addEventListener('click', () => {
+    document.getElementById('giftMessage').classList.remove('hidden');
+    document.getElementById('giftBtn').textContent = '💝';
+    hearts(14);
+  });
+
+  document.getElementById('wishBtn').addEventListener('click', () => {
+    document.getElementById('cake').textContent = '🍰';
+    document.getElementById('wishText').textContent = 'Wish sent to the universe! May something wonderful find you. 🌟';
+    hearts(24);
+  });
+
+  document.getElementById('letterBtn').addEventListener('click', () => {
+    document.getElementById('letter').classList.toggle('hidden');
+    document.getElementById('letterBtn').textContent =
+      document.getElementById('letter').classList.contains('hidden') ? 'Open your letter' : 'Close your letter';
+  });
+
+  document.getElementById('secretBtn').addEventListener('click', () => {
+    document.getElementById('secret').classList.remove('hidden');
+    document.getElementById('secretBtn').textContent = 'Secret unlocked! 💗';
+    hearts(36);
+  });
+
+  document.getElementById('replayBtn').addEventListener('click', () => {
+    document.querySelectorAll('.hidden').forEach(el => el.classList.add('hidden'));
+    document.getElementById('giftBtn').textContent = '🎁';
+    document.getElementById('cake').textContent = '🎂';
+    document.getElementById('wishText').textContent = 'Close your eyes, make a wish, and tap the button.';
+    document.getElementById('letterBtn').textContent = 'Open your letter';
+    document.getElementById('secretBtn').textContent = 'Unlock the final surprise 💖';
+    hearts(30);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>
